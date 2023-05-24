@@ -52,4 +52,9 @@ jobs:
         env:
           AUTHOR: "Andres Morales"
         run: |
-            mvn deploy -DmuleDeploy -Dmessage="Mulesoft with Maven and Github rocks!" -Dorg.id="028fb9ba-29ed-4fba-b101-6c04dd6b6edd" -Denv="Sandbox" -Dregion="us-east-2" -Ddeployment.name="hello-cicd-bmc2405" -Dca.client_id="eb58d1a3df1340218f46be8b66a256f5" -Dca.client_secret="a6a75a01AE7c40938CCCc93266a5335c"
+            mvn deploy -DmuleDeploy -Dmessage="Mulesoft with Maven and Github rocks!" \
+            -Dorg.id="028fb9ba-29ed-4fba-b101-6c04dd6b6edd" \
+            -Denv="Sandbox" -Dregion="us-east-2" \
+            -Ddeployment.name="hello-cicd-bmc2405" \
+            -Dca.client_id="${{secrets.CLIENT_ID}}" \
+            -Dca.client_secret="${{secrets.CLIENT_SECRET}}"
